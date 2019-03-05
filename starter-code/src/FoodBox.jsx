@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import foods from './foods.json'
 
-class FoodList extends Component {
+class FoodBox extends Component {
   state = {
     foods: foods
   }
@@ -10,17 +10,17 @@ class FoodList extends Component {
     let list = this.state.foods.map((food,i) => {
       return (
         <div className="box">
-        <article className="media">
-          <div className="media-left">
-            <figure className="image is-64x64">
-              <img src={food.image} />
-            </figure>
-          </div>
+          <article className="media">
+            <div className="media-left">
+              <figure className="image is-64x64">
+                <img src={food.image} />
+             </figure>
+            </div>
           <div className="media-content">
             <div className="content">
               <p>
                 <strong>{food.name}</strong> <br />
-                <small>400 cal</small>
+                <small>{food.calories}</small>
               </p>
             </div>
           </div>
@@ -49,11 +49,11 @@ class FoodList extends Component {
 
   render() {
   return (
-    <div className="FoodList">
+    <div className="FoodBox">
       {this.showFoods()}
     </div>
   )
 }
 }
 
-export default FoodList;
+export default FoodBox;

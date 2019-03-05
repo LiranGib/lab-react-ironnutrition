@@ -4,13 +4,19 @@ import './App.css';
 
 import 'bulma/css/bulma.css';
 import foods from './foods.json'
-import FoodList from './FoodList.js';
+import FoodBox from './FoodBox';
+import AddFood from './AddFood';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <FoodList/>
+        <FoodBox/>
+        <AddFood/>
+        
+        {/* <button onClick={() => this.toggleMovies() }>
+            {showOscarAwarded ? 'Hide Oscar Awarded' : 'Show Oscar Awarded'}
+        </button> */}
       </div>
     );
   }
