@@ -1,40 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import foods from './foods.json'
 
-
-class FoodBox extends Component {
-    
+class FoodList extends Component {
   state = {
     foods: foods
   }
 
   showFoods = () => {
     let list = this.state.foods.map((food,i) => {
-      return <tr key={i}>
-        <td><img src={food.image} className=""></img></td>
-        <td>{food.name}</td>
-        <td>{food.calories}</td>
-        <td>{food.quantity}</td>
-        </tr>
-    })
-    return list;
-  }
-
-
-  render() {
-    return (
-      <div className="box">
+      return (
+        <div className="box">
         <article className="media">
           <div className="media-left">
             <figure className="image is-64x64">
-             <img src={foods.image} />
-             </figure>
-           </div>
+              <img src={food.image} />
+            </figure>
+          </div>
           <div className="media-content">
             <div className="content">
               <p>
-                <strong>{foods.name}</strong> <br />
-                <small>{foods.calories}</small>
+                <strong>{food.name}</strong> <br />
+                <small>400 cal</small>
               </p>
             </div>
           </div>
@@ -44,22 +30,30 @@ class FoodBox extends Component {
                 <input
                   className="input"
                   type="number" 
-                  value={foods.quantity}
+                  value="1"
                 />
               </div>
               <div className="control">
                 <button className="button is-info">
-                +
+                  +
                 </button>
               </div>
             </div>
-           </div>
-         </article>
-        </div>
-    );
-  }
+          </div>
+        </article>
+      </div>
+      )
+  }) 
+  return list;
 }
 
-  export default FoodBox;
- 
-    
+  render() {
+  return (
+    <div className="FoodList">
+      {this.showFoods()}
+    </div>
+  )
+}
+}
+
+export default FoodList;
