@@ -1,9 +1,19 @@
 import React, { Component } from "react";
-import foods from './foods.json'
+import foods from './foods.json';
+import AddFood from './AddFood';
+
 
 class FoodBox extends Component {
   state = {
     foods: foods
+  }
+
+  addFoodHandler = (theFood) => {
+    const foodsCopy = [...this.state.foods];
+    foodsCopy.push(theFood);
+    this.setState({
+      foods: foodsCopy
+    })
   }
 
   showFoods = () => {
@@ -41,8 +51,9 @@ class FoodBox extends Component {
             </div>
           </div>
         </article>
-      </div>
+      </div> 
       )
+
   }) 
   return list;
 }
@@ -50,7 +61,10 @@ class FoodBox extends Component {
   render() {
   return (
     <div className="FoodBox">
+      <AddFood addTheFood = {this.addFoodHandler} />
+
       {this.showFoods()}
+      
     </div>
   )
 }

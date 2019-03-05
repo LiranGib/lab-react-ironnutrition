@@ -12,7 +12,6 @@ class App extends Component {
     return (
       <div className="App">
         <FoodBox/>
-        <AddFood/>
         
         {/* <button onClick={() => this.toggleMovies() }>
             {showOscarAwarded ? 'Hide Oscar Awarded' : 'Show Oscar Awarded'}

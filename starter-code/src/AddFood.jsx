@@ -2,16 +2,13 @@ import React, { Component } from "react";
 
 class AddFood extends Component {
 
-    constructor(props){
-        super(props);
-  
-        this.state = { 
-          name: '',
-          calories: '',
-          image: '',
-          quantity: ''
-        }
+    state = { 
+      name: '',
+      calories: '',
+      image: '',
+      quantity: ''
     }
+    
 
     handleNameInput = (event) => {
       this.setState({
@@ -34,12 +31,23 @@ class AddFood extends Component {
         quantity: event.target.value
       })
     }
+
+    handleFormSubmit = (event) => {
+      event.preventDefault();
+      this.props.addTheFood(this.state);   
+      this.setState({
+        name: '',
+        calories: '',
+        image: '',
+        quantity: ''
+      })  
+    }
     
     
     render(){
       return (
         <div>
-          <form onSubmit={this.handleFormSubmit}>
+          <form onSubmit = {this.handleFormSubmit}>
               <label>name:</label>
               <input type="text" name="name" value={this.state.name} onChange={(e) => this.handleNameInput(e)}/>
     
